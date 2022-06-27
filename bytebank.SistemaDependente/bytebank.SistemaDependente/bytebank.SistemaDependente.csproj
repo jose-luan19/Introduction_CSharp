@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bytebank.Modelos\Bytebank.Modelos.csproj" />
+    <Reference Include="bytebank.Library">
+      <HintPath>..\..\Librarys\bytebank.Library.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

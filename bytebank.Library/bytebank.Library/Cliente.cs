@@ -1,5 +1,5 @@
 ﻿
-namespace bytebank.Modelos.Titular
+namespace Bytebank.Modelos.Titular
 {
     public class Cliente
     {

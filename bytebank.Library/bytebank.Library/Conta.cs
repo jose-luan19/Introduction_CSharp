@@ -1,12 +1,12 @@
 ﻿/*using Newtonsoft.Json;*/
-using bytebank.Modelos.Titular;
+using Bytebank.Modelos.Titular;
 
-namespace bytebank.Modelos
+namespace Bytebank.Modelos
 {
     public class Conta
     {
         //Atributos sem validação podem ser public e criados em tempo de execução
-        public Cliente Titular { get; set; }
+        public Cliente Titular { get; set; } 
 
         private string _numero_conta;
         public string NumeroConta

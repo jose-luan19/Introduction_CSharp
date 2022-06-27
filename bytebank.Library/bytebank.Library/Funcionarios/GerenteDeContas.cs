@@ -1,4 +1,4 @@
-﻿namespace bytebank.Modelos.Funcionarios
+﻿namespace Bytebank.Modelos.Funcionarios
 {
     public class GerenteDeContas : FuncionarioAutenticavel
     {
@@ -7,7 +7,7 @@
 
         }
 
-        public override double GetBonificacao()
+        internal protected override double GetBonificacao()
         {
             return (int)(Salario / 5);
         }

@@ -1,15 +1,17 @@
-﻿using bytebank.Modelos.SistemaInterno;
+﻿using Bytebank.Modelos.SistemaInterno;
 
-namespace bytebank.Modelos.Funcionarios
+namespace Bytebank.Modelos.Funcionarios
 {
     public abstract class FuncionarioAutenticavel : Funcionario, IAutenticavel
     {
 
 
+        private AutenticacaoHelper _autenticacaoHelper = new AutenticacaoHelper();
+
         public string Senha { get; set; }
 
         public bool Autenticar(string senha)
-            => Senha == senha;
+            => _autenticacaoHelper.CompararSenhas(Senha, senha);
 
         public FuncionarioAutenticavel(double salario) : base(salario)
         {

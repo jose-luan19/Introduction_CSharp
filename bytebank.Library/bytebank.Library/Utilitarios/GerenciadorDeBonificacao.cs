@@ -1,6 +1,6 @@
-﻿using bytebank.Modelos.Funcionarios;
+﻿using Bytebank.Modelos.Funcionarios;
 
-namespace bytebank.Modelos.Utilitarios
+namespace Bytebank.Modelos.Utilitarios
 {
     internal class GerenciadorDeBonificacao
     {

@@ -1,4 +1,4 @@
-﻿namespace bytebank.Modelos.Funcionarios
+﻿namespace Bytebank.Modelos.Funcionarios
 {
     public abstract class Funcionario
     {
@@ -26,7 +26,7 @@
         }
 
         /*public virtual double GetBonificacao() => Salario * 0.1; //arrow function*/
-        public abstract double GetBonificacao();
+        internal protected abstract double GetBonificacao();
 
         /*public virtual void AumentarSalario()
         {

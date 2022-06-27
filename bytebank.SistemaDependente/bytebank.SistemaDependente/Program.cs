@@ -1,6 +1,6 @@
 ﻿
-using bytebank.Modelos;
-using bytebank.Modelos.Titular;
+using Bytebank.Modelos;
+using Bytebank.Modelos.Titular;
 
 Cliente cliente1 = new Cliente();
 cliente1.Nome = "Luan";

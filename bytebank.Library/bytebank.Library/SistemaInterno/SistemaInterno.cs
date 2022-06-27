@@ -1,6 +1,4 @@
-﻿using bytebank.Modelos.Funcionarios;
-
-namespace bytebank.Modelos.SistemaInterno
+﻿namespace Bytebank.Modelos.SistemaInterno
 {
     public class SistemaInterno
     {
