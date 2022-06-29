@@ -1,13 +1,16 @@
-﻿
-using Bytebank.Modelos;
-using Bytebank.Modelos.Titular;
+﻿using System.Text.RegularExpressions;
+using bytebank.SistemaDependente;
 
-Cliente cliente1 = new Cliente();
-cliente1.Nome = "Luan";
-cliente1.CPF = "123456";
-cliente1.Profissao = "Quase Dev";
+string url = "pagina?moedaOrigem=real&moedaDestino=dolar&valor=1500";
+Console.WriteLine(url.Contains('?'));
+ExtratorArgURL extrator = new ExtratorArgURL(url);
 
-Conta conta1 = new Conta();
-conta1.Titular = cliente1;
-Console.WriteLine(conta1);
-conta1.Sacar(100);
+string valor = extrator.GetValor("MoedaDestino");
+
+Console.WriteLine(valor);
+
+string padrão= "[0-9]{4,5}-?[0-9]{4}";
+string textFree = "Meu número de telefone é 97894-4654";
+Match resuldaMatch = Regex.Match(textFree, padrão);
+
+Console.WriteLine(resuldaMatch.Value);
