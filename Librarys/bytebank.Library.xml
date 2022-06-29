@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>bytebank.Library</name>
+    </assembly>
+    <members>
+        <member name="T:Bytebank.Modelos.Conta">
+            <summary>
+            Define uma conta do banco Bytebank.
+            </summary>
+        </member>
+        <member name="M:Bytebank.Modelos.Conta.Sacar(System.Double)">
+            <summary>
+            Realiza o saque e atualiza o valor da propriedade <see cref="P:Bytebank.Modelos.Conta.Saldo"/>.
+            </summary>
+            <param name="valor"> Representa o valor do saque e deve ser maior que zero e menor ou igual ao <see cref="P:Bytebank.Modelos.Conta.Saldo"/>. </param>
+            <returns> Retorna <value>true</value> se o saque for realizado ou <value>false</value> se não </returns>
+        </member>
+    </members>
+</doc>

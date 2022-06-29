@@ -3,6 +3,9 @@ using Bytebank.Modelos.Titular;
 
 namespace Bytebank.Modelos
 {
+    /// <summary>
+    /// Define uma conta do banco Bytebank.
+    /// </summary>
     public class Conta
     {
         //Atributos sem validação podem ser public e criados em tempo de execução
@@ -73,6 +76,11 @@ namespace Bytebank.Modelos
                    $"Saldo: {Saldo}";
         }
 
+        /// <summary>
+        /// Realiza o saque e atualiza o valor da propriedade <see cref="Saldo"/>.
+        /// </summary>
+        /// <param name="valor"> Representa o valor do saque e deve ser maior que zero e menor ou igual ao <see cref="Saldo"/>. </param>
+        /// <returns> Retorna true se o saque for realizado ou false se não </returns>
         public bool Sacar(double valor)
         {
             if (_saldo > valor && valor > 0)

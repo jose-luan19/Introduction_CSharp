@@ -10,3 +10,4 @@ cliente1.Profissao = "Quase Dev";
 Conta conta1 = new Conta();
 conta1.Titular = cliente1;
 Console.WriteLine(conta1);
+conta1.Sacar(100);
