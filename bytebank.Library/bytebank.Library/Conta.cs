@@ -109,5 +109,23 @@ namespace Bytebank.Modelos
                 Saldo += valor;
             }
         }
+
+        protected bool Equals(Conta other)
+        {
+            return _numero_conta == other._numero_conta && _numero_agencia == other._numero_agencia;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Conta)obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(_numero_conta, _numero_agencia);
+        }
     }
 }
