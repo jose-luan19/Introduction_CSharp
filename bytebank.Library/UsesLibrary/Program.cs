@@ -1,7 +1,103 @@
 ﻿using Bytebank.Modelos;
 using Humanizer;
 using UsesLibrary;
+using UsesLibrary.Comparadores;
+using UsesLibrary.Extensoess;
 
+TestaSortClassRetirandoNull();
+
+static void TestaSortClassRetirandoNull()
+{
+    var contas = new List<Conta>()
+    {
+        null,
+        new Conta(147, "456-Y", 255),
+        new Conta(458, "852-Y", 205),
+        null,
+        new Conta(163, "668-Y", 785),
+    };
+
+    //var contasNaoNulas = contas.Where(conta => conta != null);
+    //var contasNaoNulasOrdenadaByNumero = contasNaoNulas.OrderBy(conta => conta.NumeroAgencia);
+
+    var contasNaoNulasOrdenadaByNumero = contas
+        .Where(conta => conta != null)
+        .OrderBy(conta => conta.NumeroAgencia);
+
+    foreach (var conta in contasNaoNulasOrdenadaByNumero)
+    {
+        Console.WriteLine(conta);
+    }
+
+}static void TestaSortClassComNull()
+{
+    var contas = new List<Conta>()
+    {
+        null,
+        new Conta(147, "456-Y", 255),
+        new Conta(458, "852-Y", 205),
+        null,
+        new Conta(163, "668-Y", 785),
+    };
+
+    //contas.Sort();
+    //contas.Sort(new ComparadorContaPorSaldo());
+    var contasOrdenadaByNumero = contas.OrderBy(conta =>
+    {
+        if (conta == null)
+        {
+            return  int.MaxValue;
+        }
+        return conta.NumeroAgencia;
+    });
+
+    //foreach (var conta in contas)
+    foreach (var conta in contasOrdenadaByNumero)
+    {
+        if (conta == null)
+        {
+            Console.WriteLine("Conta NULL");
+        }
+
+        else{
+            Console.WriteLine(conta);
+        }
+    }
+
+}
+
+
+static void TestaListaExtensaoGenerica()
+{
+    var  idades = new List<int>();
+    var  nomes = new List<string>()
+    {
+        "Luan",
+        "CJ",
+        "L4",
+        "Ana"
+    };
+
+    idades.Add(2);
+
+    idades.AdicionarVarios(1, 2, 3, 4);
+    idades.AdicionarVarios(-1, 99);
+
+    idades.Remove(2);
+
+    idades.Sort();
+    nomes.Sort();
+
+    foreach (var nome in nomes)
+    {
+        Console.WriteLine(nome);
+    }
+
+    foreach (var idade in idades)
+    {
+        Console.WriteLine(idade);
+    }
+}
 
 static void TestaListaGenerica()
 {

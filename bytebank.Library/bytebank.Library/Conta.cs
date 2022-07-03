@@ -6,10 +6,10 @@ namespace Bytebank.Modelos
     /// <summary>
     /// Define uma conta do banco Bytebank.
     /// </summary>
-    public class Conta
+    public class Conta : IComparable
     {
         //Atributos sem validação podem ser public e criados em tempo de execução
-        public Cliente Titular { get; set; } 
+        public Cliente Titular { get; set; }
 
         private string _numero_conta;
         public string NumeroConta
@@ -61,6 +61,13 @@ namespace Bytebank.Modelos
             TotalDeContasCriadas++;
         }
 
+        public Conta(int agencia, string conta, double saldo)
+        {
+            NumeroAgencia = agencia;
+            NumeroConta = conta;
+            Saldo = saldo;
+        }
+
 
         /* public override string ToString()
          {
@@ -75,6 +82,7 @@ namespace Bytebank.Modelos
                    $"Verificador: {Verificador}, " +
                    $"Saldo: {Saldo}";
         }
+
 
         /// <summary>
         /// Realiza o saque e atualiza o valor da propriedade <see cref="Saldo"/>.
@@ -127,5 +135,47 @@ namespace Bytebank.Modelos
         {
             return HashCode.Combine(_numero_conta, _numero_agencia);
         }
+
+        /*Comparer gerado com atalho ReSharper
+        private sealed class SaldoRelationalComparer : IComparer<Conta>
+        {
+            public int Compare(Conta x, Conta y)
+            {
+                if (ReferenceEquals(x, y)) return 0;
+                if (ReferenceEquals(null, y)) return 1;
+                if (ReferenceEquals(null, x)) return -1;
+                return x._saldo.CompareTo(y._saldo);
+            }
+        }
+        public static IComparer<Conta> SaldoComparer { get; } = new SaldoRelationalComparer();
+        */
+
+        //CompareTo implementado
+        public int CompareTo(object? obj)
+        {
+            // Retornar negativo quando a instância precede o obj
+            // Retornar zero quando nossa instância e obj forem equivalentes;
+            // Retornar positivo diferente de zero quando a precedência for de obj;
+
+            var outraConta = obj as Conta;
+
+            if (outraConta == null)
+            {
+                return 1;
+            }
+               
+            if (Saldo > outraConta.Saldo)
+            {
+                return 1;
+            }
+
+            if (Saldo == outraConta.Saldo)
+            {
+                return 0;
+            }
+
+            return -1;
+        }
+
     }
 }
